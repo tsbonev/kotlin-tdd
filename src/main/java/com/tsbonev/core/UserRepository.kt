@@ -1,15 +1,19 @@
 package com.tsbonev.core
 
-class UserRepository(private val userDB: UserDB, private val validator: Validator) {
+class UserRepository(private val userDB: UserDB,
+                     private val validator: Validator,
+                     private val adultAge: Int = 18) {
 
-    fun String.isAdult(): Boolean{
-        if(Integer.parseInt(this) >= 18) return true
+    private fun String.isAdult(): Boolean{
+        if(Integer.parseInt(this) >= adultAge) return true
         return false
     }
 
     fun registerUser(user: User) {
 
-        userDB.add(user, validator)
+        if(validator.validate(user)){
+            userDB.add(user)
+        }
 
     }
 

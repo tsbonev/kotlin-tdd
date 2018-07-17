@@ -1,23 +1,8 @@
 package com.tsbonev.core
 
-import java.util.*
+interface UserDB {
 
-class UserDB {
-
-    val users: LinkedList<User> = LinkedList()
-
-    fun contains(user: User): Boolean {
-
-        return users.contains(user)
-
-    }
-
-    fun add(user: User, validator: Validator) {
-
-        if(validator.validate(user)){
-            users.add(user)
-        }
-
-    }
+    fun contains(user: User): Boolean
+    fun add(user: User)
 
 }

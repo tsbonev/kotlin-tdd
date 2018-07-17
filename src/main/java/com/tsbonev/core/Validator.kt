@@ -1,3 +1,7 @@
 package com.tsbonev.core
 
-class Validator (val validate: (User) -> Boolean)
+interface Validator {
+
+    fun validate(user: User): Boolean
+
+}
