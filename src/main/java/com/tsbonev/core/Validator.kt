@@ -1,5 +1,3 @@
 package com.tsbonev.core
 
-class Validator{
-
-}
+class Validator (val validate: (User) -> Boolean)
